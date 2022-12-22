@@ -20,11 +20,11 @@ def test_predict_positive():
     assert json_data['label'] == 'POSITIVE'
 
 
-def test_predict_negative():
+def test_predict_neutral():
     response = client.post("/predict/",
         json={"text": "I hate machine learning!"}
     )
     json_data = response.json() 
 
     assert response.status_code == 200
-    assert json_data['label'] == 'NEGATIVE'
+    assert json_data['label'] == 'NEUTRAL'
